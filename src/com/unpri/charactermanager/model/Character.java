@@ -6,10 +6,12 @@ public class Character {
 
     private String name;
     private int level;
+    private CharacterType type;
 
-    public Character(String name, int level) {
+    public Character(String name, int level, CharacterType type) {
         this.name = name;
         this.level = level;
+        this.type = type;
     }
 
     public String getName() {
@@ -18,6 +20,10 @@ public class Character {
 
     public int getLevel() {
         return level;
+    }
+
+    public CharacterType getType() {
+        return type;
     }
 
     public void setLevel(int level) {
@@ -31,7 +37,7 @@ public class Character {
             return true;
         }
 
-        if (!(obj instanceof Character)) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
 
@@ -47,6 +53,10 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{name='" + name + "', level=" + level + "}";
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", level=" + level +
+                ", type=" + type +
+                '}';
     }
 }
