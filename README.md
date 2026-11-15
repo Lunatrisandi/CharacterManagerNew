@@ -5,7 +5,7 @@ Deskripsi
 Character Manager adalah aplikasi Java sederhana yang digunakan untuk mengelola data karakter game menggunakan konsep Object-Oriented Programming (OOP). Program ini mengimplementasikan class, enum, constructor, encapsulation, method, serta validasi data. Selain itu, aplikasi menyediakan fitur level up, mana, dan pengecekan status hidup karakter.
 
 Hasil Output
-(![alt text](TP3/screenshots/tp3.png))
+![alt text](screenshots/tp3.png)
 
 Struktur Folder
 
@@ -195,4 +195,85 @@ Nama : Luna Tri Sandi
 NIM : 253303621240
 Google Docs Bagian D : [https://1drv.ms/w/c/265fce39944988d2/IQBhCxH4lz9DSb6pL-5FAL0sAfvzjrUEsdZ8RusYiMvnTYs?e=uZaojx]
 
+________________________________________________________________________________________________
 
+Character Manager — TP8 (Java Visual SIH-6406)
+
+Deskripsi
+
+Sebelum Penambahan Character
+(Tambahkan screenshot sebelum menambah 2 character baru)
+
+Contoh data:
+
+Naruto (Level 50)
+Sasuke (Level 48)
+Kakashi (Level 60)
+Rata-rata Level: 52.67
+
+Sesudah Penambahan Character
+(Tambahkan screenshot setelah menambah 2 character baru)
+
+Contoh data:
+
+Naruto (Level 50)
+Sasuke (Level 48)
+Kakashi (Level 60)
+Legolas (Level 55)
+Itachi (Level 70)
+Rata-rata Level: 56.60
+
+Aliran Data dan MVC
+Program menggunakan pola MVC (Model-View-Controller) sederhana.
+
+Class Main.java bertugas sebagai titik awal program. Pada class ini dibuat objek CharacterManager dan data karakter awal, kemudian objek tersebut dikirim ke MainWindow.
+
+Class CharacterManager berperan sebagai Model yang menyimpan dan mengelola data karakter. Seluruh proses seperti menambah karakter, mencari karakter, menghitung rata-rata level, dan mengambil daftar karakter dilakukan pada class ini.
+
+Class MainWindow berperan sebagai View yang bertugas menampilkan data ke antarmuka pengguna menggunakan Java Swing. Data karakter ditampilkan secara dinamis menggunakan perulangan dari hasil getAllCharacters().
+
+Dengan pemisahan ini, logika pengelolaan data dan tampilan tidak tercampur sehingga program lebih mudah dikembangkan dan dipelihara.
+
+Daftar Karakter dan Alasan Pemilihan
+Nama	Level	Type	Alasan
+Naruto	50	WARRIOR	Mewakili karakter petarung dengan level menengah
+Sasuke	48	MAGE	Mewakili tipe karakter dengan kemampuan khusus
+Kakashi	60	WARRIOR	Digunakan sebagai karakter berlevel tinggi
+Legolas	55	ARCHER	Mewakili tipe pemanah
+Itachi	70	MAGE	Digunakan untuk menguji fitur pencarian karakter terkuat
+Karakter dipilih dengan level yang berbeda-beda agar perhitungan rata-rata level dan pencarian karakter terkuat dapat diuji dengan jelas.
+
+Hasil Output Sebelum
+![alt text](screenshots/sebelumtp8.png)
+
+Hasil Output Susudah
+![alt text](screenshots/sesudahtp8.png)
+
+Struktur Project
+CharacterManagerNew
+│
+├── screenshots
+│   ├── tp3.png
+│   └── tp5.png
+│
+├── src
+│   └── com
+│       └── unpri
+│           └── charactermanager
+│               │
+│               ├── Main.java
+│               │
+│               ├── model
+│               │   ├── Character.java
+│               │   ├── CharacterManager.java
+│               │   └── CharacterType.java
+│               │
+│               └── view
+│                   └── MainWindow.java
+│
+└── README.md
+
+Identitas Mahasiswa
+Nama : Luna Tri Sandi
+NIM : 253303621240
+Google Docs Bagian D : [https://1drv.ms/w/c/265fce39944988d2/IQC1HpyTXEGJSZtj5abKaZnNAaQMmCg2ibE5ieK2FtdOLvI?e=dvvx9z]
