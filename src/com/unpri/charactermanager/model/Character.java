@@ -1,7 +1,5 @@
 package com.unpri.charactermanager.model;
 
-import java.util.Objects;
-
 public class Character {
 
     private String name;
@@ -24,39 +22,5 @@ public class Character {
 
     public CharacterType getType() {
         return type;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-
-        if (this == obj) {
-            return true;
-        }
-
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-
-        Character other = (Character) obj;
-
-        return Objects.equals(this.name, other.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
-    public String toString() {
-        return "Character{" +
-                "name='" + name + '\'' +
-                ", level=" + level +
-                ", type=" + type +
-                '}';
     }
 }
