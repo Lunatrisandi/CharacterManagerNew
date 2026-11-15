@@ -1,56 +1,36 @@
 package com.unpri.charactermanager;
 
 import com.unpri.charactermanager.model.Character;
-import com.unpri.charactermanager.model.CharacterType;
+import com.unpri.charactermanager.model.CharacterManager;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Character c1 = new Character(
-                "Arthur",
-                CharacterType.WARRIOR,
-                1,
-                100);
+        CharacterManager manager = new CharacterManager();
 
-        Character c2 = new Character(
-                "Merlin",
-                CharacterType.MAGE,
-                2,
-                80);
+        System.out.println(
+                manager.addCharacter(new Character("Naruto", 50))
+        );
 
-        Character c3 = new Character(
-                "Robin",
-                CharacterType.ARCHER,
-                3,
-                90);
+        System.out.println(
+                manager.addCharacter(new Character("Sasuke", 48))
+        );
 
-        System.out.println("=== DAFTAR KARAKTER ===");
-        System.out.println(c1);
-        System.out.println(c2);
-        System.out.println(c3);
+        System.out.println(
+                manager.addCharacter(new Character("Naruto", 70))
+        );
 
-        System.out.println("\n=== DEMO LEVEL UP ===");
-        System.out.println("Sebelum level up:");
-        System.out.println(c1);
+        System.out.println("Total Character : "
+                + manager.getTotalCharacters());
 
-        c1.levelUp();
+        System.out.println(
+                manager.findByName("Sasuke")
+        );
 
-        System.out.println("Setelah level up:");
-        System.out.println(c1);
+        manager.removeCharacter("Sasuke");
 
-        System.out.println("\n=== DEMO MANA & ISALIVE ===");
-
-        Character c4 = new Character(
-                "Shadow",
-                CharacterType.ASSASSIN,
-                5,
-                120);
-
-        c4.setMana(200);
-
-        System.out.println(c4);
-        System.out.println("Mana : " + c4.getMana());
-        System.out.println("Is Alive : " + c4.isAlive());
+        System.out.println("Total setelah hapus : "
+                + manager.getTotalCharacters());
     }
 }
