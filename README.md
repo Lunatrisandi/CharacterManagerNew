@@ -5,7 +5,7 @@ Deskripsi
 Character Manager adalah aplikasi Java sederhana yang digunakan untuk mengelola data karakter game menggunakan konsep Object-Oriented Programming (OOP). Program ini mengimplementasikan class, enum, constructor, encapsulation, method, serta validasi data. Selain itu, aplikasi menyediakan fitur level up, mana, dan pengecekan status hidup karakter.
 
 Contoh Output
-(![alt text](TP3/screenshots/tp3.png))
+(screenshots/tp3.png))
 
 Struktur Folder
 
