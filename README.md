@@ -358,10 +358,10 @@ Menutup jendela aplikasi
 Setiap event akan memicu kode tertentu melalui event listener yang telah didaftarkan pada komponen GUI.
 
 Hasil Output Sebelum tp10
-![alt text](screenshots/sebelum10.png)
+![alt text]![alt text](screenshots/sebelumtp10.png)
 
 Hasil Output Sesudah tp10
-![alt text](screenshots/sesudahtp10.png)
+![alt text]![alt text](screenshots/sesudahtp10.png)
 
 Struktur Project
 CharacterManagerNew
@@ -391,3 +391,124 @@ Identitas Mahasiswa
 Nama : Luna Tri Sandi
 NIM : 253303621240
 Google Docs Bagian D : [https://1drv.ms/w/c/265fce39944988d2/IQC1HpyTXEGJSZtj5abKaZnNAaQMmCg2ibE5ieK2FtdOLvI?e=dvvx9z]
+
+______________________________________________________________________________________________________________
+
+TP12 - Layout Manager & MVC
+
+Struktur Panel Bersarang
+Aplikasi menggunakan BorderLayout sebagai layout utama pada MainWindow. Area NORTH berisi panel header dan panel statistik yang disusun menggunakan panel pembungkus. Header berfungsi untuk menampilkan judul aplikasi dan form input karakter.
+
+Area CENTER berisi daftar karakter yang ditempatkan dalam JScrollPane. Dengan cara ini daftar karakter tetap dapat diakses ketika jumlah data bertambah banyak.
+
+Area EAST digunakan untuk menampilkan legenda tipe karakter menggunakan BoxLayout. Area SOUTH digunakan sebagai status bar yang menampilkan rata-rata level karakter dan versi aplikasi.
+
+Alasan Pemilihan Layout
+BorderLayout
+Saya memilih BorderLayout karena aplikasi memiliki bagian yang berbeda fungsi, yaitu header, area konten utama, legenda, dan status bar. BorderLayout mempermudah pembagian area tersebut secara jelas.
+
+GridLayout
+GridLayout digunakan pada panel statistik dan daftar kartu karakter karena seluruh komponen perlu memiliki ukuran yang seragam dan tersusun rapi.
+
+BoxLayout
+BoxLayout digunakan pada panel legenda karena item legenda ditampilkan secara vertikal dari atas ke bawah sehingga lebih mudah dibaca.
+
+Layout yang Tidak Digunakan
+FlowLayout
+FlowLayout tidak digunakan sebagai layout utama karena posisi komponen akan berubah-ubah ketika ukuran jendela berubah sehingga tampilan menjadi kurang konsisten.
+
+Null Layout
+Pendekatan menggunakan:
+
+setLayout(null);
+setBounds(...);
+tidak digunakan karena posisi komponen harus diatur secara manual dan tidak responsif terhadap perubahan ukuran jendela.
+
+Screenshot Resize
+Screenshot 1 - Ukuran Normal
+![alt text](screenshots/ukurannormaltp12.png)
+
+screenshots/tp12- Besar.png
+Screenshot 2 - Jendela Diperbesar
+![alt text](screenshots/ukuranperbesartp12.png)
+
+screenshots/tp12- Kecil.png
+Screenshot 3 - Jendela Diperkecil
+![alt text](screenshots/ukurandiperkeciltp12.png)
+
+
+
+Kondisi	Prediksi	Hasil
+Ukuran Normal	Semua panel tampil sempurna	Sesuai
+Jendela Diperbesar	Area daftar karakter menjadi lebih luas	Sesuai
+Jendela Diperkecil	Scrollbar muncul pada area karakter	Sesuai
+Legenda	Tetap berada di sisi kanan	Sesuai
+Status Bar	Tetap berada di bagian bawah	Sesuai
+Implementasi MVC
+Model
+Package model terdiri dari:
+
+Character.java
+CharacterManager.java
+CharacterType.java
+Model bertanggung jawab menyimpan dan mengelola data karakter.
+
+View
+Package view terdiri dari:
+
+MainWindow.java
+AppTheme.java
+View bertanggung jawab menampilkan data karakter kepada pengguna.
+
+Controller
+Controller diimplementasikan melalui event listener pada tombol GUI.
+
+Contoh:
+
+btnTambah.addActionListener(
+    e -> tambahCharacter());
+Ketika tombol ditekan, data akan diproses dan tampilan diperbarui.
+
+Mini Challenge
+Aplikasi menggunakan konstanta:
+
+private static final int LEVEL_THRESHOLD = 5;
+Karakter dengan level lebih besar atau sama dengan 5 ditampilkan menggunakan teks berwarna emas dan font tebal.
+
+Selain itu ditambahkan tooltip yang menampilkan informasi:
+
+HP = Level × 100
+ATK = Level × 20
+Sehingga pengguna dapat melihat statistik tambahan tanpa memenuhi tampilan utama aplikasi.
+
+
+Struktur Project
+CharacterManager
+│
+├── README.md
+│
+├── screenshots
+│   ├── tp12-normal.png
+│   ├── tp12-besar.png
+│   └── tp12-kecil.png
+│
+└── src
+    └── com
+        └── unpri
+            └── charactermanager
+                │
+                ├── Main.java
+                │
+                ├── model
+                │   ├── Character.java
+                │   ├── CharacterManager.java
+                │   └── CharacterType.java
+                │
+                └── view
+                    ├── AppTheme.java
+                    └── MainWindow.java
+
+Identitas Mahasiswa
+Nama : Luna Tri Sandi
+NIM : 253303621240
+Google Docs Bagian D : [https://1drv.ms/w/c/265fce39944988d2/IQBOBEou28cMTZN4R-ZtPPE1AXVw8zU1C6KjKFn172kdHCk?e=qhU5Lh]                  

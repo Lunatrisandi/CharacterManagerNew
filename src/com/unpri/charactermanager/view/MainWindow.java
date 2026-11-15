@@ -1,54 +1,44 @@
 package com.unpri.charactermanager.view;
 
-import com.unpri.charactermanager.model.Character;
-import com.unpri.charactermanager.model.CharacterManager;
+import java.awt.BorderLayout;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+import com.unpri.charactermanager.model.CharacterManager;
 
 public class MainWindow extends JFrame {
 
     private CharacterManager manager;
 
-    public MainWindow() {
+    public MainWindow(CharacterManager manager) {
 
-        manager = new CharacterManager();
+        this.manager = manager;
 
         setTitle("Character Manager");
-        setSize(500, 350);
+        setSize(600, 400);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        initializeComponents();
+    }
 
-        JLabel title = new JLabel("DAFTAR KARAKTER");
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);
+    private void initializeComponents() {
 
-        panel.add(title);
-        panel.add(Box.createVerticalStrut(15));
+        setLayout(new BorderLayout());
 
-        // Tampil dinamis dari loop
-        for (Character c : manager.getCharacters()) {
+        JLabel titleLabel = new JLabel(
+                "DAFTAR KARAKTER",
+                SwingConstants.CENTER);
 
-            JLabel lbl = new JLabel(
-                    c.getName()
-                    + " | Level: "
-                    + c.getLevel()
-                    + " | Type: "
-                    + c.getType());
+        add(titleLabel, BorderLayout.NORTH);
 
-            panel.add(lbl);
-        }
+        JLabel contentLabel = new JLabel(
+                "Total Character : "
+                + manager.getTotalCharacters(),
+                SwingConstants.CENTER);
 
-        panel.add(Box.createVerticalStrut(15));
-
-        JLabel avgLabel = new JLabel(
-                "Rata-rata Level: "
-                + String.format("%.2f", manager.getAverageLevel()));
-
-        panel.add(avgLabel);
-
-        add(panel);
+        add(contentLabel, BorderLayout.CENTER);
     }
 }
