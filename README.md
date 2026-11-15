@@ -277,3 +277,117 @@ Identitas Mahasiswa
 Nama : Luna Tri Sandi
 NIM : 253303621240
 Google Docs Bagian D : [https://1drv.ms/w/c/265fce39944988d2/IQC1HpyTXEGJSZtj5abKaZnNAaQMmCg2ibE5ieK2FtdOLvI?e=dvvx9z]
+
+________________________________________________________________________________________________
+Character Manager — TP10 (Java Visual SIH-6406)
+
+Deskripsi
+
+Implementasi MainWindow
+Pada TP11, aplikasi Character Manager dikembangkan dari aplikasi console menjadi aplikasi GUI menggunakan Java Swing. GUI dibuat menggunakan class MainWindow yang berada pada package view dan mewarisi (extends) class JFrame.
+
+Jendela aplikasi memiliki title bar, ukuran yang sesuai, serta menggunakan setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) agar aplikasi tertutup dengan benar saat tombol close ditekan.
+
+Implementasi Dinamis
+Data karakter tidak ditampilkan menggunakan JLabel yang dibuat satu per satu secara manual. Seluruh data ditampilkan secara dinamis menggunakan perulangan terhadap data yang tersimpan di CharacterManager.
+
+Contoh:
+
+for (Character character : manager.getAllCharacters()) {
+
+    JLabel label = new JLabel(
+            character.getName()
+            + " | Level : "
+            + character.getLevel()
+            + " | Type : "
+            + character.getType());
+
+    listPanel.add(label);
+}
+Dengan pendekatan ini, setiap penambahan karakter baru akan otomatis muncul pada tampilan GUI tanpa perlu menambahkan JLabel baru secara manual.
+
+Penggunaan SwingUtilities.invokeLater()
+Class Main.java menggunakan:
+
+SwingUtilities.invokeLater(() -> {
+    MainWindow window = new MainWindow(manager);
+    window.setVisible(true);
+});
+Penggunaan SwingUtilities.invokeLater() memastikan seluruh komponen GUI dibuat dan dijalankan pada Event Dispatch Thread (EDT) sesuai praktik yang direkomendasikan pada Java Swing.
+
+Arsitektur MVC
+Struktur aplikasi mengikuti pola MVC (Model View Controller) sederhana.
+
+Main
+ │
+ ▼
+CharacterManager (Model)
+ │
+ ▼
+MainWindow (View)
+Model
+Model terdiri dari:
+
+Character
+CharacterType
+CharacterManager
+Model bertanggung jawab menyimpan dan mengelola data karakter.
+
+View
+View direpresentasikan oleh:
+
+MainWindow
+View bertugas menampilkan data karakter dan statistik rata-rata level kepada pengguna.
+
+Controller
+Controller diwujudkan melalui event listener pada tombol GUI.
+
+Contoh:
+
+btnTambah.addActionListener(e -> tambahCharacter());
+Ketika tombol ditekan, event akan memanggil method yang memproses data dan memperbarui tampilan.
+
+Event Driven Programming
+Aplikasi menggunakan konsep event-driven programming. Program tidak berjalan secara berurutan seperti aplikasi console, melainkan menunggu aksi pengguna.
+
+Contoh event:
+
+Klik tombol Tambah Character
+Memilih Character Type
+Menutup jendela aplikasi
+Setiap event akan memicu kode tertentu melalui event listener yang telah didaftarkan pada komponen GUI.
+
+Hasil Output Sebelum tp10
+![alt text](screenshots/sebelum10.png)
+
+Hasil Output Sesudah tp10
+![alt text](screenshots/sesudahtp10.png)
+
+Struktur Project
+CharacterManagerNew
+│
+├── screenshots
+│   ├── tp3.png
+│   └── tp5.png
+│
+├── src
+│   └── com
+│       └── unpri
+│           └── charactermanager
+│               │
+│               ├── Main.java
+│               │
+│               ├── model
+│               │   ├── Character.java
+│               │   ├── CharacterManager.java
+│               │   └── CharacterType.java
+│               │
+│               └── view
+│                   └── MainWindow.java
+│
+└── README.md
+
+Identitas Mahasiswa
+Nama : Luna Tri Sandi
+NIM : 253303621240
+Google Docs Bagian D : [https://1drv.ms/w/c/265fce39944988d2/IQC1HpyTXEGJSZtj5abKaZnNAaQMmCg2ibE5ieK2FtdOLvI?e=dvvx9z]
